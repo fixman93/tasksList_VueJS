@@ -1,5 +1,7 @@
 <template>
-  <div class="container" id="app">test</div>
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

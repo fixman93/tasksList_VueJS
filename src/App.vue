@@ -1,16 +1,10 @@
 <template>
-    <div class="container">
-
-    </div>
+  <div class="container" id="app">test</div>
 </template>
 
 <script>
-
-    export default {
-
-    }
+export default {};
 </script>
 
-<style>
-
+<style lang="scss">
 </style>

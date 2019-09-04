@@ -12,7 +12,9 @@ const mutations = {
     state.tickets.push({
       name: data.name,
       id: data.id,
-      listId: data.listId
+      listId: data.listId,
+      description: data.description,
+      status: data.status
     })
     localStorage.setItem('tickets', JSON.stringify(state.tickets));
   }

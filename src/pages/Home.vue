@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-page">
     <h1>Home</h1>
     <!-- <li>
       <router-link to="/portfolio" activeClass="active" tag="li"><a>Portfolio</a></router-link>
@@ -24,13 +24,13 @@
     </div>
     <form>
       <at-input v-model="listName" placeholder="List Name"></at-input>
+      <at-button
+        hollow
+        class="btn btn-success"
+        @click="addNewList"
+        :disabled="listName.length <= 0"
+      >Add</at-button>
     </form>
-    <at-button
-      hollow
-      class="btn btn-success"
-      @click="addNewList"
-      :disabled="listName.length <= 0"
-    >Add</at-button>
   </div>
 </template>
 
@@ -70,6 +70,16 @@ export default {
 };
 </script>
 
-<style lang="sass">
-
+<style scoped>
+.home-page form {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  max-width: 320px;
+  margin: 30px auto;
+  width: 100%;
+}
+.home-page form button {
+  margin-top: 20px;
+}
 </style>

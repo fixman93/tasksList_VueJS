@@ -9,8 +9,8 @@
         <at-card>
           <h4 slot="title">{{task.name}}</h4>
           <div slot="extra">
-            <router-link :to="`/listDetails/${task.id}`">
-              <a>Link</a>
+            <router-link :to="`/listDetails/${task.id}`" exact>
+              <a>Show tickets</a>
             </router-link>
           </div>
           <div>

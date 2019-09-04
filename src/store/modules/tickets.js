@@ -17,6 +17,27 @@ const mutations = {
       status: data.status
     })
     localStorage.setItem('tickets', JSON.stringify(state.tickets));
+  },
+  'UPDATE_LIST'(state, value) {
+    let newTicketsList = state.tickets.filter(function (element) {
+      return element.id !== value.id;
+    });
+    newTicketsList.push({
+      name: value.name,
+      id: value.id,
+      listId: value.listId,
+      description: value.description,
+      status: value.status
+    })
+    localStorage.setItem("tickets", JSON.stringify(newTicketsList));
+
+  },
+  'DELETE_ELEMENT'(state, id) {
+    let newTicketsList = state.tickets.filter(function (element) {
+      return element.id !== id;
+    });
+    localStorage.setItem("tickets", JSON.stringify(newTicketsList));
+    state.tickets = newTicketsList
   }
 }
 
@@ -26,6 +47,12 @@ const actions = {
   },
   addTicket: ({ commit }, data) => {
     commit('ADD_TICKET', data)
+  },
+  updateTicket: ({ commit }, value) => {
+    commit('UPDATE_LIST', value)
+  },
+  deleteElement: ({ commit }, value) => {
+    commit('DELETE_ELEMENT', value)
   }
 }
 

@@ -2,5 +2,5 @@ import Home from './pages/Home.vue'
 import ListDetails from './pages/ListDetails.vue'
 export const routes = [
   { path: '/', component: Home },
-  { path: '/listDetails', component: ListDetails }
+  { path: '/listDetails/:id', component: ListDetails }
 ]

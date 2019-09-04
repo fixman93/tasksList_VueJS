@@ -1,27 +1,30 @@
+const tasks = localStorage.getItem("taskLists")
 const state = {
-  tasksList: [
-    {
-      name: 1
-    }, {
-      name: 2
-    }
-  ]
+  tasksList: tasks ? JSON.parse(tasks) : []
 }
 
 const mutations = {
-  'ADD_TASKS'(state, { taskName, taskId, taskStatus, taskDescription }) {
+  'ADD_LIST'(state, { listName, listId }) {
     state.tasksList.push({
-      name: taskName,
-      id: taskId,
-      status: taskStatus,
-      description: taskDescription
+      name: listName,
+      id: listId
     })
+    localStorage.setItem("taskLists", JSON.stringify(state.tasksList));
+  },
+  'DELETE_LIST'(state, { listId }) {
+    state.tasksList.splice(listId, 1)
+    localStorage.setItem("taskLists", JSON.stringify(state.tasksList));
   }
 }
 
 const actions = {
   addTask: ({ commit }, task) => {
-    commit('ADD_TASKS', task)
+    commit('ADD_LIST', task)
+
+  },
+  deleteList: ({ commit }, listId) => {
+    commit('DELETE_LIST', listId)
+
   }
 }
 

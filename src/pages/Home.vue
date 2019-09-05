@@ -1,15 +1,12 @@
 <template>
   <div class="home-page">
     <h1>Home</h1>
-    <!-- <li>
-      <router-link to="/portfolio" activeClass="active" tag="li"><a>Portfolio</a></router-link>
-    </li>-->
     <div class="row at-row no-gutter">
       <div class="col-md-8" v-for="(task, index) in tasks">
         <at-card>
           <h4 slot="title">{{task.name}}</h4>
           <div slot="extra">
-            <router-link :to="`/listDetails/${task.id}`" exact>
+            <router-link :to="`/listDetails/${task.id}`">
               <a>Show tickets</a>
             </router-link>
           </div>
